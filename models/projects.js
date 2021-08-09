@@ -5,7 +5,6 @@ const projectSchema = mongoose.Schema({
   name: {
     type: String,
     required: true,
-    unique: true,
   },
   startDate: {
     type: Date,

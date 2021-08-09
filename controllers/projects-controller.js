@@ -23,7 +23,7 @@ export const getProjects = async (req, res) => {
 export const delProjects = async (req, res) => {
   try {
     await ProjectModel.deleteOne({ _id: req.params.id });
-    res.status(201).json('Activies deleted Successfully');
+    res.status(201).json('Project deleted Successfully');
   } catch (error) {
     res.status(201).json({ errors: error.message });
   }

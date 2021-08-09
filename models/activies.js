@@ -5,7 +5,6 @@ const activitySchema = mongoose.Schema({
   name: {
     type: String,
     required: true,
-    unique: true,
   },
   idProject: {
     type: Number,

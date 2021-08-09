@@ -15,7 +15,6 @@ export const storeActivity = async (req, res) => {
 
 
 export const getActiviesByIdProject = async (req, res) => {
-  console.log(req.params.id)
   try {
     const activies = await ActivityModel.find({idProject: req.params.id}).exec();
     res.status(200).json(activies);
@@ -28,6 +27,15 @@ export const getActiviesByIdProject = async (req, res) => {
 export const delActivies = async (req, res) => {
   try {
     await ActivityModel.deleteOne({ _id: req.params.id });
+    res.status(201).json('Activies deleted Successfully');
+  } catch (error) {
+    res.status(201).json({ errors: error.message });
+  }
+};
+
+export const delActiviesbyProject = async (req, res) => {
+  try {
+    await ActivityModel.deleteOne({ idProject: req.params.id });
     res.status(201).json('Activies deleted Successfully');
   } catch (error) {
     res.status(201).json({ errors: error.message });
