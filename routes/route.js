@@ -1,9 +1,10 @@
 import express from 'express';
-import { storeProject, getProjects, delProjects } from '../controllers/projects-controller.js'
+import { storeProject, getProjects, delProjects, getProjectsById } from '../controllers/projects-controller.js'
 import { storeActivity, delActivies, editActivityState, getActiviesByIdProject, delActiviesbyProject} from '../controllers/activies-controller.js'
 const router = express.Router();
 
 router.get('/', getProjects);
+router.get('/:id', getProjectsById);
 router.post('/store', storeProject)
 router.delete('/del/:id', delProjects);
 

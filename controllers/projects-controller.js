@@ -13,8 +13,17 @@ export const storeProject = async (req, res) => {
 
 export const getProjects = async (req, res) => {
   try {
-    const activies = await ProjectModel.find();
-    res.status(200).json(activies);
+    const projects = await ProjectModel.find();
+    res.status(200).json(projects);
+  } catch (error) {
+    res.status(404).json({ errors: error.message });
+  }
+};
+
+export const getProjectsById = async (req, res) => {
+  try {
+    const project = await ProjectModel.findOne({_id: req.params.id });
+    res.status(200).json(project);
   } catch (error) {
     res.status(404).json({ errors: error.message });
   }
