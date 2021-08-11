@@ -29,6 +29,16 @@ export const getProjectsById = async (req, res) => {
   }
 };
 
+
+export const getProjectsByName = async (req, res) => {
+  try {
+    const project = await ProjectModel.findOne({name: req.params.name });
+    res.status(200).json(project);
+  } catch (error) {
+    res.status(404).json({ errors: error.message });
+  }
+};
+
 export const delProjects = async (req, res) => {
   try {
     await ProjectModel.deleteOne({ _id: req.params.id });
